@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :find_user, only [:show, :update, :destroy]
+  # before_action :find_user, only [:show, :update, :destroy]
 
   def index
     @users = User.all
@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     render json: @user
   end
 
@@ -20,6 +21,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+
     @user.update(user_params)
     if @user.save
       render json: @user, status: :accepted
@@ -29,6 +32,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+
     @user.destroy
     render json: @user
   end
@@ -36,7 +41,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit[:name, :username, :password, :job_title, :company]
+    params.permit(:name, :username, :password, :job_title, :company)
   end
 
   def find_user
