@@ -5,9 +5,8 @@ Rails.application.routes.draw do
       resources :users
       resources :assets
       resources :liabilities
-      resources :equities
       resources :incomes
-      resources :equities  
+      resources :expenses
     end
   end
 end

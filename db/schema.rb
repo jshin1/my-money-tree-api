@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 2019_03_07_211622) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "equities", force: :cascade do |t|
-    t.string "name"
-    t.integer "amount"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "expenses", force: :cascade do |t|
     t.string "name"
     t.integer "amount"

@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_many :assets
   has_many :liabilities
-  has_many :equities
   has_many :incomes
   has_many :expenses
 
